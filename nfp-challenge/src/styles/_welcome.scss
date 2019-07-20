@@ -1,0 +1,85 @@
+.welcome-page{
+	width: 100%;
+	height: 100%;
+
+
+	.background-images-holder{
+		float: left;
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		top: 0;
+		left:0;
+		float: left;
+
+		.background-image{
+			float: left;
+			width: 20%;
+			height: 33.33%;
+			overflow: hidden;
+			background-size: cover;
+			background-position: center;
+		}
+
+		&:after{
+			content: '';
+			top: 0;
+			left:0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0,0.75);
+			position: absolute;
+			@include transition(all 1s ease);
+			@include transition-delay(0.5s);
+		}
+	}
+
+	.welcome-info-holder{
+		float: left;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		position: absolute;
+		top: 0;
+		left:0;
+		justify-content:center;
+		align-items:center;
+		@include transition(all 1s ease);
+
+		.button-row{
+			margin-top: 50px;
+		}
+	}
+
+	h1{
+		font-size: 75pt;
+		font-weight: 400;
+		color: $color-light;
+		font-family: $font-title;
+		margin: 0px;
+		text-align: center;
+	    float: left;
+	    width: 100%;
+	}
+	h2{
+		color: $color-light;
+		font-weight: 300;
+		font-size: 15pt;
+		text-align: center;
+	    float: left;
+	    width: 100%;
+	}
+
+	// Transition Styles for leaving page
+	&.inTransition{
+		overflow: hidden;
+		.background-images-holder:after{
+			background: rgba(0,0,0,1);
+		}
+
+		.welcome-info-holder{
+			top:-100%;
+		}
+	}
+
+}

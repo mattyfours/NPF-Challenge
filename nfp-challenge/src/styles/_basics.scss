@@ -1,0 +1,98 @@
+*{
+	box-sizing: border-box;
+	font-family: $font-sans;
+}
+html,body, .app{
+  width:100%;
+  margin:0;
+  padding:0;
+}
+
+body{
+	overflow-x:hidden;
+	height: 100vh;
+}
+.app{
+
+	position: relative;
+	height: 100%
+}
+
+// Placeholder
+::placeholder { 
+	color: $color-soft;
+	opacity: 1; 
+}
+:-ms-input-placeholder { 
+	color: $color-soft;
+}
+::-ms-input-placeholder { 
+	color: $color-soft;
+}
+
+// Hightlight Color
+::-moz-selection { background: $color-prime;  color: $color-light;}
+::selection { background: $color-prime; color: $color-light;}
+
+
+// Scroll Bar
+::-webkit-scrollbar {
+  width: 8px !important;
+  height: 10px;
+  background-color: $color-soft;
+  border-top: 1px solid $color-mid; 
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $color-mid;
+  height: 10px; 
+}
+
+
+// Button Row
+.button-row{
+	margin: 10px 0px;
+	float: left;
+	width: 100%;
+	text-align: center;
+	&.left{
+		text-align: left;
+	}
+	&.right{
+		text-align: right;
+	}
+}
+
+// Button
+.button{
+	background: $color-dark;
+	border:2px solid $color-dark;
+	border-radius: 50px;
+	color: $color-light;
+	font-size: 12pt;
+	cursor: pointer;
+	outline: none;
+	display: inline-block;
+	margin: 5px 5px;
+	font-weight: 700;
+	text-decoration: none;
+	padding: 10px 30px;
+	@include transition(all 0.3s ease);
+	@include box-shadow(0px 0px 8px 2px rgba(0,0,0,0.5));
+
+	&:hover{
+		background: $color-light;
+		color: $color-dark;
+	}
+
+	&.inverse{
+		background: $color-light;
+		border-color:$color-light;
+		color: $color-dark;
+		&:hover{
+			background: $color-dark;
+			color: $color-light;
+		}
+	}
+
+}

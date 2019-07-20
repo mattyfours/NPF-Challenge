@@ -1,0 +1,20 @@
+// Mixins
+@mixin transition($settings) {
+   	transition:$settings;
+	-webkit-transition:$settings;
+}
+@mixin transition-delay ($settings) {
+   	transition-delay:$settings;
+	-webkit-transition-delay:$settings;
+}
+
+@mixin box-shadow($settings) {
+   	-webkit-box-shadow: $settings;
+	-moz-box-shadow: $settings;
+	box-shadow:$settings;
+}
+
+@mixin transform($settings){
+	transform: $settings;
+	-webkit-transform: $settings;
+}
