@@ -4,6 +4,8 @@
 	height: 100%;
 	overflow: hidden;
 	position: absolute;
+	background: $color-verysoft;
+
 	&:after{
 		content: '';
 		top: 0;
@@ -20,5 +22,155 @@
 		@include transition(all 1s ease);
 		background: rgba(0,0,0,1);
 		
+	}
+}
+
+.control-bar{
+	float: left;
+	width: 400px;
+	position: fixed;
+	left:0;
+	top: 0;
+	height: 100%;
+	background: $color-light;
+	padding:15px;
+	overflow-x: auto;
+	@include box-shadow(0px 0px 10px 2px rgba(100,100,100,0.15));
+
+	h1{
+		font-family: $font-title;
+		font-weight: 400;
+		margin: 10px 0px 20px 0px;
+		font-size: 25pt;
+		width: 100%;
+		text-align: center;
+		float: left;
+	}
+
+	.control-bar-section{
+		float: left;
+		width: 100%;
+		border-top:2px solid $color-soft;
+		margin: 0px 0px;
+		padding: 20px 0px;
+
+		h3{
+			margin: 0px 0px 5px 0px;
+			float: left;
+			width: 100%;
+			font-weight: 600;
+			font-size: 12pt;
+			text-align: left;
+			color: $color-dark;
+		}
+		select, input{
+			width: 100%;
+			float: left;
+			position: relative;
+			margin: 5px 0px;
+			padding: 5px 10px;
+			font-size: 12pt;
+			border: 1px solid $color-dark;
+			border-radius: 5px;
+
+			&:focus{
+				outline: none;
+			}
+		}
+		.search-bar-holder{
+			float: left;
+			width: 100%;
+			position: relative;
+			input{
+				padding-right: 60px;
+			}
+
+			button{
+				position: absolute;
+				height: calc(100% - 10px);
+				top: 5px;
+				right: 0;
+				border-radius: 0px 5px 5px 0px;
+				background: $color-dark;
+				color: $color-light;
+				border: 1px solid $color-dark;
+				font-size: 14px;
+				font-weight: 600;
+				text-align: center;
+				cursor: pointer;
+				width: 50px;
+				@include transition(all 0.2s ease);
+
+				&:hover{
+					background: $color-light;
+					color: $color-dark;
+				}
+				&:focus,&:active{outline: none;}
+			}
+		}
+		
+	}
+}
+.text-placement-options{
+	float: left;
+	width: 100%;
+	margin: 5px 0px 0px 0px;
+	button{
+		float: left;
+		width: calc(16.666% - 4px);
+		margin: 2px;
+		border-radius: 5px;
+		padding: 4px;
+		@include box-shadow(none);
+	}
+}
+
+.image-option-display{
+	float: left;
+	width: 100%;
+	height: 300px;
+	margin-top: 10px;
+
+	.image-options{
+		float: left;
+		width: 20%;
+		height: 25%;
+		cursor: pointer;
+		background-size: cover;
+		position: relative;
+		@include transition(all 0.2s ease);
+
+		&:after{
+			content: '';
+			position: absolute;
+			top: 0;
+			left:0;
+			width: 100%;
+			height: 100%;
+			pointer-events:none;
+			background: $color-dark;
+			opacity: 0.5;
+			@include transition(all 0.2s ease);
+		}
+		&:hover{
+			border:1px solid $color-light;
+			&:after{
+				background: 0.0;
+			}
+		}
+	}
+}
+
+
+// Override colour picker styles
+.chrome-picker {
+	float: left !important;
+	position: relative !important;
+	width: 100% !important;
+	margin: 10px 0px 0px 0px !important;
+	box-shadow:none !important;
+	padding: 0px !important;
+	.flexbox-fix:last-child{
+		display: none !important; 
 	}
 }

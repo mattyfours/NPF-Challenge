@@ -13,11 +13,11 @@ class Welcome extends React.Component {
 
     let imagesArray = await this.pullImages();   
 
-    const listItems = imagesArray.map((image) =>
+    const listImages = imagesArray.map((image) =>
       <div key={image.id} className='background-image' style={{backgroundImage: 'url(' + image.urls.regular + ')'}}>
       </div>
     );
-    this.setState({'backgroundImages':listItems});
+    this.setState({'backgroundImages':listImages});
     
   }
 
@@ -62,7 +62,7 @@ class Welcome extends React.Component {
         <div className="welcome-info-holder">
           <div className="welcome-info">
             <h1>PostrMakr</h1>
-            <h2>Create a beautiful image posters Unsplash images!</h2>
+            <h2>Create a beautiful posters from Unsplash images!</h2>
             <div className="button-row">
               <button className="button inverse" onClick={this.goToApp}>Let's Get Started!</button>
             </div>
