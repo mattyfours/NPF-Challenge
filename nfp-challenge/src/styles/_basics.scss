@@ -1,3 +1,6 @@
+// Basics Styles for the web
+
+// No selection or Highlighting
 *{
 	box-sizing: border-box;
 	font-family: $font-sans;
@@ -10,12 +13,13 @@
     -ms-user-select: none; 
      user-select: none;    
 }
+
+// html, body, and app styling
 html,body, .app{
   width:100%;
   margin:0;
   padding:0;
 }
-
 body{
 	overflow-x:hidden;
 	height: 100vh;
@@ -26,7 +30,7 @@ body{
 	height: 100%
 }
 
-// Placeholder
+// Placeholder styles
 ::placeholder { 
 	color: $color-soft;
 	opacity: 1; 
@@ -38,12 +42,8 @@ body{
 	color: $color-soft;
 }
 
-// Hightlight Color
-::-moz-selection { background: $color-prime;  color: $color-light;}
-::selection { background: $color-prime; color: $color-light;}
 
-
-// Scroll Bar
+// Scroll Bar styles
 ::-webkit-scrollbar {
   width: 8px !important;
   height: 10px;

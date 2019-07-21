@@ -1,3 +1,4 @@
+//Styles for the Poser Holder
 .poster-holder{
 	float: left;
 	position: absolute;
@@ -12,6 +13,7 @@
 	padding: 30px;
 }
 
+// Poster Styles - Default is Layout 1
 .poster{
 	background: $color-light;
 	@include box-shadow(0px 0px 10px 2px rgba(100,100,100,0.25));
@@ -44,7 +46,7 @@
 		left: 0;
 		height: 100%;
 		width: 100%;
-		z-index: 100;
+		z-index: 1000;
 		display: flex;
 		justify-content:center;
 		align-items:center;
@@ -57,9 +59,40 @@
 			width: 100%;
 			text-align: center;
 			color: $color-dark;
-			font-size: 5vw;
-			line-height: 5vw;
+			font-size: 20pt;
+			line-height: 20pt;
 		}
 	}
+	.poster-border{
+		position: absolute;
+		top: 15px;
+		left: 15px;
+		height: calc(100% - 30px);
+		width: calc(100% - 30px);
+		z-index: 100;
+		background: rgba(0,0,0,0);
+		border:20px solid #fff;
+	}
+}
 
+// Poster Styles - Layout 2
+.poster.layout_2{
+	.poster-image{
+		top: 33.33%;
+		height: 66.66%;
+	}
+	.poster-image-overlay{
+		top: 33.33%;
+		height: 66.66%;
+	}
+	.poster-text-holder{
+		height: 33.33%;
+		padding: 25px;
+	}
+	.poster-border{
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
 }

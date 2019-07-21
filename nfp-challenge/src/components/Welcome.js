@@ -5,22 +5,26 @@ class Welcome extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      // Will contain background images for tiled background
       backgroundImages:null,
+      // Boolean for route transition
       isTransition: false,
     };
   }
-  async componentDidMount() {
 
+  async componentDidMount() {
+    // Get recent images from Unsplash
     let imagesArray = await this.pullImages();   
 
+    // Mapp returned images to display as a grid
     const listImages = imagesArray.map((image) =>
       <div key={image.id} className='background-image' style={{backgroundImage: 'url(' + image.urls.regular + ')'}}>
       </div>
     );
     this.setState({'backgroundImages':listImages});
-    
   }
 
+  // Get 15 recent images from unsplash
   pullImages(){
     return new Promise((resolve, reject) => {
       const url = global.api.url+'/photos?per_page=15'+global.api.id;
@@ -42,6 +46,8 @@ class Welcome extends React.Component {
     });
   }
 
+  // Function called on goClick for Let's Get Started button
+  // Smoothly transitions to PosterMaker Component
   goToApp =() =>{
     // console.log(this.state.isTransition);
     this.setState({'isTransition':true});
