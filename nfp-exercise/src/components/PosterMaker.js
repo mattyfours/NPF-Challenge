@@ -14,7 +14,7 @@ class Welcome extends React.Component {
         layout:'layout_1',
         chosenImage:'',
         imageOverlayColor:'rgba(0,0,0,0.5)',
-        text:'Natural Partners FullScript',
+        text:'Natural Partners Fullscript',
         textAlign:'center',
         textVertAlign:'center',
         textSize:40,
