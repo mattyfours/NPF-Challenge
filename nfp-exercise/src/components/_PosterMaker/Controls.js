@@ -278,7 +278,7 @@ class Controls extends React.Component {
           <button className="section-toggle"
             onClick={(e)=>{
               let toggleTemp = this.state.controlBarToggle;
-              toggleTemp.subtitleText = !toggleTemp.text;
+              toggleTemp.subtitleText = !toggleTemp.subtitleText;
               this.setState({'controlBarToggle':toggleTemp});
             }}
           >Subtitle Text <FontAwesomeIcon icon={faChevronDown}/></button>
