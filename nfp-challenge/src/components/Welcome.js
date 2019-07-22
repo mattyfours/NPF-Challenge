@@ -68,7 +68,7 @@ class Welcome extends React.Component {
         <div className="welcome-info-holder">
           <div className="welcome-info">
             <h1>PostrMakr</h1>
-            <h2>Create a beautiful posters from Unsplash images!</h2>
+            <h2>Design beautiful posters from Unsplash images!</h2>
             <div className="button-row">
               <button className="button inverse" onClick={this.goToApp}>Let's Get Started!</button>
             </div>

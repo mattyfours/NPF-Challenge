@@ -8,10 +8,6 @@ import { faSearch, faAlignRight, faAlignLeft, faAlignCenter, faChevronDown } fro
 // Import Colour Picker
 import { ChromePicker } from 'react-color'
 
-// Import html2canvas & jsPDF to download poster
-import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
-
 class Controls extends React.Component {
   constructor(props) {
     super(props);
@@ -27,6 +23,7 @@ class Controls extends React.Component {
         layout:false,
         image:false,
         text:false,
+        subtitleText:false,
         border:false,
       }
     };
@@ -106,6 +103,7 @@ class Controls extends React.Component {
     });          
   }
 
+
   render() {
     return (
       <div className="control-bar">       
@@ -131,6 +129,7 @@ class Controls extends React.Component {
               onChange={(e)=>{
                 let optionsTemp = this.state.posterOptions;
                 optionsTemp.layout = e.target.value;
+
                 this.updateOptions(optionsTemp);         
               }}
             >
@@ -190,12 +189,12 @@ class Controls extends React.Component {
               toggleTemp.text = !toggleTemp.text;
               this.setState({'controlBarToggle':toggleTemp});
             }}
-          >Text <FontAwesomeIcon icon={faChevronDown}/></button>
+          >Main Text <FontAwesomeIcon icon={faChevronDown}/></button>
           
 
           <div className="control-bar-section-options">
 
-            <h4>Poster Text</h4>
+            <h4>Main Title Text</h4>
              {/* Input poster text*/}
             <input 
               placeholder="Add some text." 
@@ -233,6 +232,21 @@ class Controls extends React.Component {
               </button>
             </div>
 
+            <h4>Text Vertical Alignment</h4>
+            {/* Select Layour Type*/}
+            <select 
+              value={this.props.posterOptions.textVertAlign}
+              onChange={(e)=>{
+                let optionsTemp = this.state.posterOptions;
+                optionsTemp.textVertAlign = e.target.value;
+                this.updateOptions(optionsTemp);         
+              }}
+            >
+              <option value="flex-start">Top</option>
+              <option value="center">Middle</option>
+              <option value="flex-end">Bottom</option>
+            </select>
+
             <h4>Text Size</h4>
              {/* Range slider for text size*/}
             <input 
@@ -253,6 +267,57 @@ class Controls extends React.Component {
                 let optionsTemp = this.state.posterOptions;
                 optionsTemp.textColor = `rgba(${color.rgb.r},${color.rgb.g},${color.rgb.b},${color.rgb.a})`;
                 this.updateOptions(optionsTemp);           
+              }}
+            />
+          </div>
+        </div>
+
+
+        {/* Subtitle Text Controls Go Here*/}
+        <div className={ this.state.controlBarToggle.subtitleText ? "control-bar-section open" : "control-bar-section" }>
+          <button className="section-toggle"
+            onClick={(e)=>{
+              let toggleTemp = this.state.controlBarToggle;
+              toggleTemp.subtitleText = !toggleTemp.text;
+              this.setState({'controlBarToggle':toggleTemp});
+            }}
+          >Subtitle Text <FontAwesomeIcon icon={faChevronDown}/></button>
+          
+
+          <div className="control-bar-section-options">
+
+            <h4>Subtitle Text</h4>
+             {/* Input poster text*/}
+            <input 
+              placeholder="Add some text." 
+              value={this.props.posterOptions.subtitleText}
+              onChange={(e)=>{
+                let optionsTemp = this.state.posterOptions;
+                optionsTemp.subtitleText = e.target.value;
+                this.updateOptions(optionsTemp);         
+              }}
+            />            
+
+            <h4>Subtitle Text Size</h4>
+             {/* Range slider for text size*/}
+            <input 
+              type="range" min="10" max="85" step="1"
+              value={this.props.posterOptions.subtitleTextSize}
+              onChange={(e)=>{
+                let optionsTemp = this.state.posterOptions;
+                optionsTemp.subtitleTextSize= e.target.value;
+                this.updateOptions(optionsTemp);         
+              }}
+            />
+            <h4>Text Spacing</h4>
+             {/* Range slider for text size*/}
+            <input 
+              type="range" min="0" max="70" step="1"
+              value={this.props.posterOptions.textSpacing}
+              onChange={(e)=>{
+                let optionsTemp = this.state.posterOptions;
+                optionsTemp.textSpacing = e.target.value;
+                this.updateOptions(optionsTemp);         
               }}
             />
           </div>
@@ -295,6 +360,8 @@ class Controls extends React.Component {
             />
           </div>
         </div>
+
+
       </div>
     );
   }

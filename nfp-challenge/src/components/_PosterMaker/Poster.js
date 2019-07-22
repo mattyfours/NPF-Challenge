@@ -22,8 +22,12 @@ class Poster extends React.Component {
             }}
           />
           {/* Text Holder With Text Div*/}
-          <div className="poster-text-holder">
-            <div className="poster-text">
+          <div className="poster-text-holder"
+            style={{
+              alignItems:this.props.posterOptions.textVertAlign,
+            }}
+          >
+            <div className="text-wrapper">
               <h1
                 style={{
                   textAlign: this.props.posterOptions.textAlign,
@@ -32,6 +36,15 @@ class Poster extends React.Component {
                   color: this.props.posterOptions.textColor
                 }}
               >{this.props.posterOptions.text}</h1>
+              <h2
+                style={{
+                  marginTop: this.props.posterOptions.textSpacing+'px',
+                  fontSize: this.props.posterOptions.subtitleTextSize+'pt',
+                  lineHeight: this.props.posterOptions.subtitleTextSize+'pt',
+                  textAlign: this.props.posterOptions.textAlign,
+                  color: this.props.posterOptions.textColor
+                }}
+              >{this.props.posterOptions.subtitleText}</h2>
             </div>
           </div>
 

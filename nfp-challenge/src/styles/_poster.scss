@@ -55,8 +55,19 @@
 
 		h1{
 			float: left;
-			margin: 5px;
+			margin: 0px 0px 0px 0px;
 			width: 100%;
+			text-align: center;
+			color: $color-dark;
+			font-size: 20pt;
+			line-height: 20pt;
+			font-weight: 700;
+		}
+		h2{
+			float: left;
+			margin: 15px 0px 0px 0px;
+			width: 100%;
+			font-weight: 400;
 			text-align: center;
 			color: $color-dark;
 			font-size: 20pt;
